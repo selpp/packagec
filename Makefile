@@ -16,9 +16,9 @@ all:
 lib:
 	@echo "** Building Library"
 	@mkdir -p build/objs
-	$(LIB_CC) ./src/draw.c $(LIBS) -o ./build/objs/draw.o
-	$(LIB_CC) ./src/resources.c $(LIBS) -o ./build/objs/ressources.o
-	$(CC) -shared $(LIBS) ./build/objs/* -o ./build/packagec.so 
+	$(LIB_CC) ./src/draw.c -o ./build/objs/draw.o
+	$(LIB_CC) ./src/resources.c -o ./build/objs/ressources.o
+	$(CC) -shared $(LIBS) ./build/objs/* -o ./build/packagec.so
 
 clean:
 	@echo "** Cleaning"
