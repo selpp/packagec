@@ -8,6 +8,7 @@
 #define FAILURE( info ) ( { perror( info ); return EXIT_FAILURE; } )
 
 // ========= RENAME =============
+#define createWindow( ... ) sfRenderWindow_create( __VA_ARGS__ )
 #define setFPSCapWindow( ... ) sfWindow_setFramerateLimit( __VA_ARGS__ )
 #define isOpenWindow( ... ) sfRenderWindow_isOpen( __VA_ARGS__ )
 #define pollEventWindow( ... ) sfRenderWindow_pollEvent( __VA_ARGS__ )

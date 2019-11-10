@@ -23,7 +23,7 @@ sfEvent         event;
 // ========= LOOP ===============
 int main( int args, char* argv[ ] ) {
   mode   = Mode( WIDTH, HEIGHT, BITS_PER_PIXEL );
-  window = sfRenderWindow_create( mode, TITLE, sfResize | sfClose, NULL );
+  window = createWindow( mode, TITLE, sfResize | sfClose, NULL );
   if( !window ) FAILURE( "window" );
 
   setFPSCapWindow( ( sfWindow* ) window, FPS_CAP );
