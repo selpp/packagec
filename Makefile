@@ -2,7 +2,7 @@ LIBS=-lcsfml-graphics -lcsfml-window -lcsfml-system
 CC=gcc
 LIB_CC=$(CC) -c -Wall -Werror -fPIC -O2
 
-UTILS=./src/utils.h
+UTILS=./src/utils.h ./src/utils.c
 DRAW=./src/draw.h ./src/draw.c
 RESOURCES=./src/resources.h ./src/resources.c
 
@@ -17,6 +17,7 @@ all:
 lib:
 	@echo "** Building Shared Library"
 	@mkdir -p build/objs
+	$(LIB_CC) ./src/utils.c -o ./build/objs/utils.o
 	$(LIB_CC) ./src/draw.c -o ./build/objs/draw.o
 	$(LIB_CC) ./src/resources.c -o ./build/objs/ressources.o
 	$(CC) -shared $(LIBS) ./build/objs/* -o ./build/bdl.so

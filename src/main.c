@@ -28,8 +28,8 @@ int             texture_sprite_id;
 
 // ========= LOOP ===============
 int main( int args, char* argv[ ] ) {
-  mode   = Mode( WIDTH, HEIGHT, BITS_PER_PIXEL );
-  window = createWindow( mode, TITLE, sfResize | sfClose, NULL );
+  // mode   = Mode( WIDTH, HEIGHT, BITS_PER_PIXEL );
+  window = createWindow( WIDTH, HEIGHT, BITS_PER_PIXEL, TITLE, sfResize | sfClose, NULL );
   if( !window ) FAILURE( "window" );
 
   setFPSCapWindow( ( sfWindow* ) window, FPS_CAP );
@@ -40,9 +40,7 @@ int main( int args, char* argv[ ] ) {
 
   while( isOpenWindow( window ) ) {
 
-    while( pollEventWindow( window, &event ) )
-      if( event.type == sfEvtClosed )
-        closeWindow( window );
+    handleDefaultEvents(window);
 
     clearWindow( window, sfBlack );
 
