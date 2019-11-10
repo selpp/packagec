@@ -8,5 +8,6 @@ FILES=$(UTILS) $(DRAW) $(RESOURCES)
 
 all:
 	@echo "** Building library"
-	@mkdir -p build
+	@mkdir -p ./build
+	@cp -r ./src/res ./build
 	gcc -Wall -O2 $(FILES) ./src/main.c -o ./build/main $(LIBS)

@@ -4,6 +4,9 @@
 #include <SFML/System.h>
 #endif
 
+#include <stdio.h>
+#include <stdlib.h>
+
 // ========= MACROS =============
 #define FAILURE( info ) ( { perror( info ); return EXIT_FAILURE; } )
 

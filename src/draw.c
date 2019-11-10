@@ -33,3 +33,11 @@ void drawConvexPolygone( sfRenderWindow* window, sfVector2f* positions, int size
   sfConvexShape_setOutlineColor( convex_polygone, outline_color );
   sfRenderWindow_drawShape( window, ( sfShape* ) convex_polygone, NULL );
 }
+
+void drawSprite( sfRenderWindow* window, sfVector2f position, sfVector2f scale, sfTexture** manager, int idx ) {
+  sfSprite* sprite = sfSprite_create( );
+  sfSprite_setTexture( sprite, *( manager + idx ), sfTrue );
+  sfSprite_setPosition( sprite, position );
+  sfSprite_setScale( sprite, scale );
+  sfRenderWindow_drawSprite( window, sprite, NULL );
+}
