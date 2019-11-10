@@ -20,15 +20,15 @@
 #define _displayWindow( ... ) sfRenderWindow_display( __VA_ARGS__ )
 #define _destroyWindow( ... ) sfRenderWindow_destroy( __VA_ARGS__ )
 
-sfRenderWindow* createWindow(int width, int height, int depth, char* title, char flags, void* chepa);
-void setFPSCapWindow(sfWindow* window, int cap);
-char isOpenWindow(sfRenderWindow* window);
-char pollEventWindow(sfRenderWindow* window, sfEvent* event);
-void closeWindow(sfRenderWindow* window);
-void clearWindow(sfRenderWindow* window, sfColor color);
-void displayWindow(sfRenderWindow* window);
-void destroyWindow(sfRenderWindow* window);
-void handleDefaultEvents(sfRenderWindow* window);
+sfRenderWindow* createWindow( sfVideoMode mode, char* title, char style, void* settings );
+void setFPSCapWindow( sfWindow* window, int cap );
+char isOpenWindow( sfRenderWindow* window );
+char pollEventWindow( sfRenderWindow* window, sfEvent* event );
+void closeWindow( sfRenderWindow* window );
+void clearWindow( sfRenderWindow* window, sfColor color );
+void displayWindow( sfRenderWindow* window );
+void destroyWindow( sfRenderWindow* window );
+void handleDefaultEvents( sfRenderWindow* window );
 
 // ========= CLASSES ============
 #define Mode( w, h, bpp ) ( ( sfVideoMode ) { w, h, bpp } )
