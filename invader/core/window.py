@@ -1,8 +1,8 @@
 import ctypes
 
 from invader.core.utils import Color
+from invader.utils import bdl
 
-bdl                      = ctypes.cdll.LoadLibrary( 'packagepython/res/bdl.so' )
 bdl.createWindow.restype = ctypes.c_void_p
 
 class _Mode( ctypes.Structure ):

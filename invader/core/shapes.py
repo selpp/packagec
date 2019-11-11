@@ -4,9 +4,9 @@ from invader.core.window import Window
 from invader.core.maths import _Vec2f
 from invader.core.maths import Vec2f
 from invader.core.utils import Color
+from invader.utils import bdl
 from typing import List
 
-bdl                      = ctypes.cdll.LoadLibrary( 'packagepython/res/bdl.so' )
 bdl.createWindow.restype = ctypes.c_void_p
 c_float_p                = ctypes.POINTER( ctypes.c_float )
 

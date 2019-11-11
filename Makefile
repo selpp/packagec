@@ -1,6 +1,6 @@
 LIBS=-lcsfml-graphics -lcsfml-window -lcsfml-system
 CC=gcc
-LIB_CC=$(CC) -c -Wall -O2
+LIB_CC=$(CC) -Wall -O2
 LIB_CC_SHARED=$(CC) -c -Wall -Werror -fPIC -O2
 
 UTILS=./src/utils.h ./src/utils.c
