@@ -5,7 +5,7 @@ from invader.core.maths import Vec2f
 from invader.utils import bdl
 
 bdl.createTexture.restype        = ctypes.c_void_p
-bdl.createTexture.restype        = ctypes.c_void_p
+bdl.addTexture.restype           = ctypes.c_int
 bdl.createTextureManager.restype = ctypes.c_void_p
 
 class Sprite:
@@ -16,7 +16,7 @@ class Sprite:
         self.idx     = idx
 
     def __call__( self: 'Sprite', window: 'Window' ) -> None:
-        bdl.drawSprite( window, self.pos.to_c( ), self.scale.to_c( ), self.manager.manager, self.idx )
+        bdl.drawSprite( window.window, self.pos.to_c( ), self.scale.to_c( ), self.manager.manager, self.idx )
 
 class TextureManager:
     def __init__( self: 'TextureManager', max_size: int ) -> None:
@@ -24,8 +24,8 @@ class TextureManager:
         self.manager  = self._create_texture( )
 
     def _create_texture( self: 'TextureManager' ) -> ctypes.c_void_p:
-        bdl.createTextureManager( ctypes.c_int( self.max_size ) )
+        return ctypes.c_void_p( bdl.createTextureManager( ctypes.c_int( self.max_size ) ) )
 
     def __add__( self: 'TextureManager', path: str ) -> ctypes.c_int:
         texture = bdl.createTexture( ctypes.c_char_p( path.encode( ) ) )
-        return bdl.addTexture( self.manager, ctypes.c_int( self.max_size ), texture )
+        return bdl.addTexture( self.manager, ctypes.c_int( self.max_size ), ctypes.c_void_p(texture) )
