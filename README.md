@@ -29,5 +29,7 @@ cd PackageC/build
 
 In order to use the shared object library:
 ```bash
-BDL=./build/bdl.so python3 -m invader
+make
+make lib
+BDL=./build/bdl.so python -m invader -r build/res
 ```
